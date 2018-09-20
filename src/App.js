@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import github from "./img/github-white.svg";
 
   const sounds = [
     {
@@ -99,6 +100,16 @@ class App extends Component {
             </button>
             ))}
         </div>
+        <footer className="footer">
+          <a
+            href="https://github.com/rifkegribenes/drum-machine"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="footer-link"
+            >
+          <img src={github} className="footer-icon" alt="github" />
+        </a>
+      </footer>
       </div>
     );
   }
