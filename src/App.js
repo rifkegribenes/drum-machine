@@ -51,11 +51,19 @@ import './App.css';
 
 class App extends Component {
 
+  state = {
+    name: ""
+  }
+
   playSound = (e) => {
     const name = e.target.id;
     const soundObj = sounds.filter((sound => sound.name === name));
     const audioId = soundObj[0].id;
     document.getElementById(audioId).play();
+    this.setState({
+      name: soundObj[0].name
+    });
+    setTimeout(() => { this.setState({ name: ""})}, 500)
 
   }
 
@@ -63,7 +71,7 @@ class App extends Component {
     return (
       <div className="app" id="drum-machine">
         <div className="drum-pad-wrap">
-          <div className="display" id="display" />
+          <div className="display" id="display">{this.state.name}</div>
           <button
             className="drum-pad"
             id="bang"
