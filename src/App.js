@@ -55,13 +55,30 @@ class App extends Component {
     name: ""
   }
 
-  playSound = (e) => {
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeydown);
+  }
+
+  handleKeydown = (e) => {
+    const keyCodes = sounds.map(sound => sound.keyCode);
+    if (keyCodes.includes(e.keyCode)) {
+      const soundObj = sounds.filter((sound => sound.keyCode === e.keyCode))[0];
+      this.playSound(soundObj);
+    } else {
+      e.preventDefault();
+    }
+  }
+
+  handleClick = (e) => {
     const name = e.target.id;
-    const soundObj = sounds.filter((sound => sound.name === name));
-    const audioId = soundObj[0].id;
-    document.getElementById(audioId).play();
+    const soundObj = sounds.filter((sound => sound.name === name))[0];
+    this.playSound(soundObj);
+  }
+
+  playSound = (soundObj) => {
+    document.getElementById(soundObj.id).play();
     this.setState({
-      name: soundObj[0].name
+      name: soundObj.name
     });
     setTimeout(() => { this.setState({ name: ""})}, 500)
 
@@ -75,55 +92,55 @@ class App extends Component {
           <button
             className="drum-pad"
             id="bang"
-            onClick={(e) => this.playSound(e)}>Q
+            onClick={(e) => this.handleClick(e)}>Q
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/bang.mp3' className="clip" id="Q" />
           </button>
           <button
             className="drum-pad"
             id="bawm"
-            onClick={(e) => this.playSound(e)}>W
+            onClick={(e) => this.handleClick(e)}>W
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/bawm.mp3' className="clip" id="W" />
           </button>
           <button
             className="drum-pad"
             id="chack"
-            onClick={(e) => this.playSound(e)}>E
+            onClick={(e) => this.handleClick(e)}>E
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/chack.mp3' className="clip" id="E" />
           </button>
           <button
             className="drum-pad"
             id="cheee"
-            onClick={(e) => this.playSound(e)}>A
+            onClick={(e) => this.handleClick(e)}>A
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/cheee.mp3' className="clip" id="A" />
           </button>
           <button
             className="drum-pad"
             id="chick"
-            onClick={(e) => this.playSound(e)}>S
+            onClick={(e) => this.handleClick(e)}>S
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/chick.mp3' className="clip" id="S" />
           </button>
           <button
             className="drum-pad"
             id="crash"
-            onClick={(e) => this.playSound(e)}>D
+            onClick={(e) => this.handleClick(e)}>D
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/crash.mp3' className="clip" id="D" />
           </button>
           <button
             className="drum-pad"
             id="pip"
-            onClick={(e) => this.playSound(e)}>Z
+            onClick={(e) => this.handleClick(e)}>Z
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/pip.mp3' className="clip" id="Z" />
           </button>
           <button
             className="drum-pad"
             id="ratatat"
-            onClick={(e) => this.playSound(e)}>X
+            onClick={(e) => this.handleClick(e)}>X
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/ratatat.mp3' className="clip" id="X" />
           </button>
           <button
             className="drum-pad"
             id="snap"
-            onClick={(e) => this.playSound(e)}>C
+            onClick={(e) => this.handleClick(e)}>C
             <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/snap.mp3' className="clip" id="C" />
           </button>
         </div>
