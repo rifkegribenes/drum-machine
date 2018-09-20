@@ -78,10 +78,15 @@ class App extends Component {
 
   playSound = (soundObj) => {
     document.getElementById(soundObj.id).play();
+    document.getElementById(soundObj.name).classList.add('powerUp');
     this.setState({
       name: soundObj.name
     });
-    setTimeout(() => { this.setState({ name: ""})}, 500)
+    setTimeout(() => {
+      this.setState({ name: ""});
+      document.getElementById(soundObj.name).classList.remove('powerUp');
+      document.getElementById(soundObj.name).blur();
+    }, 500)
 
   }
 
@@ -90,9 +95,9 @@ class App extends Component {
       <div className="app" id="drum-machine">
         <div className="drum-pad-wrap">
           <div className="display" id="display">{this.state.name}</div>
-          {sounds.map(sound => (
+          {sounds.map((sound, i) => (
             <button
-              className="drum-pad"
+              className={`drum-pad c${i}`}
               key={sound.id}
               id={sound.name}
               onClick={(e) => this.handleClick(e)}>{sound.id}
