@@ -5,56 +5,47 @@ import './App.css';
     {
       keyCode: 81,
       id: "Q",
-      name: "bang",
-      src: './audio/Bang.mp3'
+      name: "bang"
     },
     {
       keyCode: 87,
       id: "W",
-      name: "bawm",
-      src: './audio/Bawm.mp3'
+      name: "bawm"
     },
     {
       keyCode: 69,
       id: "E",
-      name: "chack",
-      src: './audio/Chack.mp3'
+      name: "chack"
     },
     {
       keyCode: 65,
       id: "A",
-      name: "cheee",
-      src: './audio/Cheee.mp3'
+      name: "cheee"
     },
     {
       keyCode: 83,
       id: "S",
-      name: "chick",
-      src: './audio/Chick.mp3'
+      name: "chick"
     },
     {
       keyCode: 68,
       id: "D",
-      name: "crash",
-      src: './audio/Crash.mp3'
+      name: "crash"
     },
     {
       keyCode: 90,
       id: "Z",
-      name: "pip",
-      src: './audio/Pip.mp3'
+      name: "pip"
     },
     {
       keyCode: 88,
       id: "X",
-      name: "ratatat",
-      src: './audio/Ratatat.mp3'
+      name: "ratatat"
     },
     {
       keyCode: 67,
       id: "C",
-      name: "snap",
-      src: './audio/Snap.mp3'
+      name: "snap"
     }
   ];
 
@@ -64,7 +55,6 @@ class App extends Component {
     const name = e.target.id;
     const soundObj = sounds.filter((sound => sound.name === name));
     const audioId = soundObj[0].id;
-    console.log(document.getElementById(audioId).src);
     document.getElementById(audioId).play();
 
   }
@@ -78,55 +68,55 @@ class App extends Component {
             className="drum-pad"
             id="bang"
             onClick={(e) => this.playSound(e)}>Q
-            <audio src='./audio/bang.mp3' className="clip" id="Q" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/bang.mp3' className="clip" id="Q" />
           </button>
           <button
             className="drum-pad"
             id="bawm"
             onClick={(e) => this.playSound(e)}>W
-            <audio src='./audio/bawm.mp3' className="clip" id="W" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/bawm.mp3' className="clip" id="W" />
           </button>
           <button
             className="drum-pad"
             id="chack"
             onClick={(e) => this.playSound(e)}>E
-            <audio src='./audio/chack.mp3' className="clip" id="E" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/chack.mp3' className="clip" id="E" />
           </button>
           <button
             className="drum-pad"
             id="cheee"
             onClick={(e) => this.playSound(e)}>A
-            <audio src='./audio/cheee.mp3' className="clip" id="A" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/cheee.mp3' className="clip" id="A" />
           </button>
           <button
             className="drum-pad"
             id="chick"
             onClick={(e) => this.playSound(e)}>S
-            <audio src='./audio/chick.mp3' className="clip" id="S" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/chick.mp3' className="clip" id="S" />
           </button>
           <button
             className="drum-pad"
             id="crash"
             onClick={(e) => this.playSound(e)}>D
-            <audio src='./audio/crash.mp3' className="clip" id="D" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/crash.mp3' className="clip" id="D" />
           </button>
           <button
             className="drum-pad"
             id="pip"
             onClick={(e) => this.playSound(e)}>Z
-            <audio src='./audio/pip.mp3' className="clip" id="Z" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/pip.mp3' className="clip" id="Z" />
           </button>
           <button
             className="drum-pad"
             id="ratatat"
             onClick={(e) => this.playSound(e)}>X
-            <audio src='./audio/ratatat.mp3' className="clip" id="X" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/ratatat.mp3' className="clip" id="X" />
           </button>
           <button
             className="drum-pad"
             id="snap"
             onClick={(e) => this.playSound(e)}>C
-            <audio src='./audio/snap.mp3' className="clip" id="C" />
+            <audio src='https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/audio/snap.mp3' className="clip" id="C" />
           </button>
         </div>
       </div>
