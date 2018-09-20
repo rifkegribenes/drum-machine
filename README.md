@@ -1,6 +1,6 @@
 # Drum machine (FCC front end libraries project)
 
-### live url
+### [rifkegribenes-drum-machine.surge.sh](http://rifkegribenes-drum-machine.surge.sh/)
 
 ![drum-machine screenshot](https://raw.githubusercontent.com/rifkegribenes/drum-machine/master/src/img/screenshot.png)
 
